@@ -1,38 +1,77 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Hero = () => {
   return (
-    <>
-      <section
-        id="home"
-        className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
-      >
-        <div className="container">
-          <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4">
-              <div
-                className="wow fadeInUp mx-auto max-w-[800px] text-center"
-                data-wow-delay=".2s"
-              >
-                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                  Zendesk Apps to Power up yout Business
-                </h1>
-                <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
-                  Seamlessly integrated with Zendesk. Purpose-built for teams of any size.
-                </p>
-                <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                  <Link
-                    target="_blank"
-                    href="https://github.com/themewagon/startup-nextjs"
-                    className="inline-block rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
-                  >
-                    Star on GitHub
-                  </Link>
-                </div>
+    <section
+      id="home"
+      className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px]"
+    >
+      <div className="container">
+        <div className="-mx-4 flex flex-wrap items-center">
+          
+          {/* LEFT: TEXT */}
+          <div className="w-full px-4 lg:w-1/2">
+            <div
+              className="wow fadeInUp max-w-[520px]"
+              data-wow-delay=".2s"
+            >
+              <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1 text-sm font-medium text-primary">
+                Apps for Zendesk teams
+              </span>
+
+              <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl md:text-5xl">
+                Make Zendesk work better for your team
+              </h1>
+
+              <p className="mb-10 text-xxl leading-relaxed text-body-color dark:text-body-color-dark sm:text-3xl md:text-4xl">
+                Powerful Zendesk apps that automate workflows, reduce manual work,
+                and give support teams full visibility to move faster.
+              </p>
+
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/apps"
+                  className="rounded-sm bg-black px-8 py-4 text-base font-semibold text-white transition hover:bg-black/90 dark:bg-white dark:text-black"
+                >
+                  View Zendesk Apps
+                </Link>
+
+                <Link
+                  href="/how-it-works"
+                  className="rounded-sm border border-black/20 px-8 py-4 text-base font-semibold text-black transition hover:bg-black/5 dark:border-white/20 dark:text-white"
+                >
+                  See how it works
+                </Link>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-5 text-sm text-body-color dark:text-body-color-dark">
+                <span>Faster workflows</span>
+                <span>Native Zendesk integration</span>
+                <span>Built to scale</span>
               </div>
             </div>
           </div>
+
+          {/* RIGHT: IMAGE */}
+          <div className="w-full px-4 lg:w-1/2">
+            <div
+              className="wow fadeInUp relative mx-auto mt-12 max-w-[600px] lg:mt-0"
+              data-wow-delay=".3s"
+            >
+              <Image
+                src="/images/support-team.jpg"
+                alt="Zendesk app dashboard"
+                width={900}
+                height={600}
+                className="rounded-xl shadow-xl dark:shadow-none"
+                priority
+              />
+            </div>
+          </div>
+
         </div>
+      </div>
         <div className="absolute right-0 top-0 z-[-1] opacity-30 lg:opacity-100">
           <svg
             width="450"
@@ -275,8 +314,7 @@ const Hero = () => {
           </svg>
         </div>
       </section>
-    </>
-  );
+    );
 };
 
 export default Hero;
