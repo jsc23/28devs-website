@@ -31,8 +31,7 @@ const Footer = () => {
                   />
                 </Link>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer lobortis.
+                  
                 </p>
                 <div className="flex items-center">
                   <a
@@ -206,22 +205,6 @@ const Footer = () => {
           </div>
 
           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
-          <div className="py-8">
-            <p className="text-center text-base text-body-color dark:text-white">
-              Template by UIdeck and{" "}
-              <a href="https://nextjstemplates.com" rel="nofollow noopener">
-                Next.js Templates
-              </a>
-              . Distributed by{" "}
-              <a
-                target="_blank"
-                href="https://themewagon.com/"
-                rel="nofollow noopener noreferrer"
-              >
-                ThemeWagon
-              </a>
-            </p>
-          </div>
         </div>
         <div className="absolute right-0 top-14 z-[-1]">
           <svg

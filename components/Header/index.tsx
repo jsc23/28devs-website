@@ -172,9 +172,7 @@ const Header = () => {
                 >
                   Free Trial
                 </Link>
-                <div>
-                  <ThemeToggler />
-                </div>
+                
               </div>
             </div>
           </div>

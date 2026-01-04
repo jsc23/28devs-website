@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px]"
+      className="relative z-10 overflow-hidden bg-white pb-10 pt-[80px] dark:bg-gray-dark md:pb-[80px] md:pt-[100px] xl:pb-[100px] xl:pt-[120px]"
     >
       <div className="container">
         <div className="-mx-4 flex flex-wrap items-center">
@@ -56,15 +56,15 @@ const Hero = () => {
           {/* RIGHT: IMAGE */}
           <div className="w-full px-4 lg:w-1/2">
             <div
-              className="wow fadeInUp relative mx-auto mt-12 max-w-[600px] lg:mt-0"
+              className="wow fadeInUp relative mx-auto mt-12 max-w-full lg:mt-0"
               data-wow-delay=".3s"
             >
               <Image
-                src="/images/support-team.jpg"
+                src="/images/Team-goals.svg"
                 alt="Zendesk app dashboard"
-                width={900}
-                height={600}
-                className="rounded-xl shadow-xl dark:shadow-none"
+                width={1200}
+                height={800}
+                className="w-full h-auto"
                 priority
               />
             </div>
