@@ -23,7 +23,7 @@ const Blog = () => {
           <div className="flex flex-wrap items-center justify-between gap-6">
             <h1 className="text-4xl font-bold md:text-5xl">Blog</h1>
 
-            {/* Search */}
+            {/* Search (visual only) */}
             <div className="relative w-full max-w-sm">
               <input
                 type="text"
@@ -61,11 +61,11 @@ const Blog = () => {
                 </h2>
 
                 <p className="mb-4 text-body-color">
-                  {featured.description}
+                  {featured.paragraph}
                 </p>
 
                 <Link
-                  href={`/blog/${featured.slug}`}
+                  href="#0"
                   className="font-semibold text-primary hover:underline"
                 >
                   Read article →
@@ -82,7 +82,7 @@ const Blog = () => {
               <ul className="space-y-6">
                 {topArticles.map((post) => (
                   <li key={post.id} className="group">
-                    <Link href={`/blog/${post.slug}`}>
+                    <Link href="#0">
                       <div className="flex items-start gap-4">
                         <span className="mt-2 h-2 w-2 rounded-full bg-primary"></span>
 
@@ -91,12 +91,12 @@ const Blog = () => {
                             {post.title}
                           </p>
                           <p className="text-sm text-body-color">
-                            {post.description}
+                            {post.paragraph}
                           </p>
                         </div>
 
                         <span className="ml-2 whitespace-nowrap text-sm text-body-color">
-                          {post.readTime || "10 min read"}
+                          {post.publishDate}
                         </span>
                       </div>
                     </Link>
@@ -132,7 +132,7 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Rest of posts (grid) */}
+      {/* Rest of posts */}
       <section className="pb-[120px]">
         <div className="container max-w-7xl">
           <div className="-mx-4 flex flex-wrap">
@@ -141,8 +141,7 @@ const Blog = () => {
                 key={blog.id}
                 className="mb-16 w-full px-4 md:w-1/2 xl:w-1/3"
               >
-                {/* Aquí sí usamos cards */}
-                <div className="rounded-lg border border-body-color/10 overflow-hidden">
+                <div className="h-full rounded-lg border border-body-color/10 overflow-hidden">
                   <Image
                     src={blog.image}
                     alt={blog.title}
@@ -150,15 +149,18 @@ const Blog = () => {
                     height={240}
                     className="w-full object-cover"
                   />
+
                   <div className="p-6">
                     <h4 className="mb-2 text-lg font-semibold">
                       {blog.title}
                     </h4>
+
                     <p className="mb-4 text-sm text-body-color">
-                      {blog.description}
+                      {blog.paragraph}
                     </p>
+
                     <Link
-                      href={`/blog/${blog.slug}`}
+                      href="#0"
                       className="text-sm font-semibold text-primary hover:underline"
                     >
                       Read more →
