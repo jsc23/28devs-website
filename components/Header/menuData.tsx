@@ -23,7 +23,7 @@ const menuData: Menu[] = [
   {
     id: 33,
     title: "Pricing",
-    path: "/blog",
+    path: "/Pricing",
     newTab: false,
   },
   {
@@ -32,24 +32,25 @@ const menuData: Menu[] = [
     newTab: false,
     submenu: [
       {
-        id: 41,
-        title: "About Page",
-        path: "/about",
-        newTab: false,
-      },
-      {
-        id: 42,
-        title: "Contact Page",
-        path: "/contact",
-        newTab: false,
-      },
+      id: 11,
+      title: "Incognito Auditor",
+      path: "/incognito-auditor",
+      newTab: false,
+    },
     ],
   },
-    {
+  {
     id: 33,
-    title: "Blog",
-    path: "/blog",
+    title: "Resources",
     newTab: false,
+    submenu: [
+      {
+      id: 11,
+      title: "Blog",
+      path: "/blog",
+      newTab: false,
+    },
+    ],
   },
   
 ];

@@ -1,97 +1,172 @@
-import SingleBlog from "@/components/Blog/SingleBlog";
 import blogData from "@/components/Blog/blogData";
-import Breadcrumb from "@/components/Common/Breadcrumb";
-
+import Image from "next/image";
+import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog Page | Free Next.js Template for Startup and SaaS",
-  description: "This is Blog Page for Startup Nextjs Template",
-  // other metadata
+  title: "Blog | Zendesk insights & resources",
+  description:
+    "Insights, product updates, and practical resources for Zendesk teams.",
 };
 
 const Blog = () => {
+  const blogs = blogData();
+  const featured = blogs[0];
+  const topArticles = blogs.slice(1, 5);
+  const rest = blogs.slice(5);
+
   return (
     <>
-      <Breadcrumb
-        pageName="Blog Grid"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
-      />
+      {/* Header */}
+      <section className="pt-24 md:pt-28 lg:pt-32 pb-12">
+        <div className="container max-w-7xl">
+          <div className="flex flex-wrap items-center justify-between gap-6">
+            <h1 className="text-4xl font-bold md:text-5xl">Blog</h1>
 
-      <section className="pb-[120px] pt-[120px]">
-        <div className="container">
-          <div className="-mx-4 flex flex-wrap justify-center">
-            {blogData().map((blog) => (
-              <div
-                key={blog.id}
-                className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
-              >
-                <SingleBlog blog={blog} />
-              </div>
-            ))}
+            {/* Search */}
+            <div className="relative w-full max-w-sm">
+              <input
+                type="text"
+                placeholder="Search the blog"
+                className="w-full rounded-md border border-body-color/20 px-4 py-2 text-sm outline-none focus:border-primary"
+              />
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div
-            className="wow fadeInUp -mx-4 flex flex-wrap"
-            data-wow-delay=".15s"
-          >
-            <div className="w-full px-4">
-              <ul className="flex items-center justify-center pt-8">
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="flex h-9 min-w-[36px] items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color transition hover:bg-primary hover:bg-opacity-100 hover:text-white"
-                  >
-                    Prev
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="flex h-9 min-w-[36px] items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color transition hover:bg-primary hover:bg-opacity-100 hover:text-white"
-                  >
-                    1
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="flex h-9 min-w-[36px] items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color transition hover:bg-primary hover:bg-opacity-100 hover:text-white"
-                  >
-                    2
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="flex h-9 min-w-[36px] items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color transition hover:bg-primary hover:bg-opacity-100 hover:text-white"
-                  >
-                    3
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <span className="flex h-9 min-w-[36px] cursor-not-allowed items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color">
-                    ...
-                  </span>
-                </li>
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="flex h-9 min-w-[36px] items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color transition hover:bg-primary hover:bg-opacity-100 hover:text-white"
-                  >
-                    12
-                  </a>
-                </li>
-                <li className="mx-1">
-                  <a
-                    href="#0"
-                    className="flex h-9 min-w-[36px] items-center justify-center rounded-md bg-body-color bg-opacity-[15%] px-4 text-sm text-body-color transition hover:bg-primary hover:bg-opacity-100 hover:text-white"
-                  >
-                    Next
-                  </a>
-                </li>
+      {/* Featured + Top articles */}
+      <section className="pb-20">
+        <div className="container max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-3">
+            {/* Featured */}
+            {featured && (
+              <div className="lg:col-span-2 rounded-xl border border-body-color/10 p-6">
+                <span className="mb-4 inline-block bg-yellow-200 px-3 py-1 text-xs font-semibold uppercase">
+                  Featured article
+                </span>
+
+                <div className="mb-6 overflow-hidden rounded-lg">
+                  <Image
+                    src={featured.image}
+                    alt={featured.title}
+                    width={900}
+                    height={500}
+                    className="w-full object-cover"
+                  />
+                </div>
+
+                <h2 className="mb-3 text-2xl font-bold">
+                  {featured.title}
+                </h2>
+
+                <p className="mb-4 text-body-color">
+                  {featured.description}
+                </p>
+
+                <Link
+                  href={`/blog/${featured.slug}`}
+                  className="font-semibold text-primary hover:underline"
+                >
+                  Read article →
+                </Link>
+              </div>
+            )}
+
+            {/* Top articles */}
+            <div>
+              <h3 className="mb-6 border-b border-body-color/20 pb-2 text-xl font-semibold">
+                Explore our top articles
+              </h3>
+
+              <ul className="space-y-6">
+                {topArticles.map((post) => (
+                  <li key={post.id} className="group">
+                    <Link href={`/blog/${post.slug}`}>
+                      <div className="flex items-start gap-4">
+                        <span className="mt-2 h-2 w-2 rounded-full bg-primary"></span>
+
+                        <div className="flex-1">
+                          <p className="mb-1 text-lg font-semibold group-hover:underline">
+                            {post.title}
+                          </p>
+                          <p className="text-sm text-body-color">
+                            {post.description}
+                          </p>
+                        </div>
+
+                        <span className="ml-2 whitespace-nowrap text-sm text-body-color">
+                          {post.readTime || "10 min read"}
+                        </span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Categories */}
+      <section className="pb-16">
+        <div className="container max-w-7xl">
+          <div className="flex flex-wrap gap-3">
+            {[
+              "Recent Posts",
+              "Customer Support",
+              "Zendesk Tips",
+              "Product Updates",
+              "Security",
+              "Marketing",
+              "News",
+            ].map((cat) => (
+              <button
+                key={cat}
+                className="rounded-md border border-body-color/20 px-4 py-2 text-sm transition hover:bg-primary hover:text-white"
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Rest of posts (grid) */}
+      <section className="pb-[120px]">
+        <div className="container max-w-7xl">
+          <div className="-mx-4 flex flex-wrap">
+            {rest.map((blog) => (
+              <div
+                key={blog.id}
+                className="mb-16 w-full px-4 md:w-1/2 xl:w-1/3"
+              >
+                {/* Aquí sí usamos cards */}
+                <div className="rounded-lg border border-body-color/10 overflow-hidden">
+                  <Image
+                    src={blog.image}
+                    alt={blog.title}
+                    width={400}
+                    height={240}
+                    className="w-full object-cover"
+                  />
+                  <div className="p-6">
+                    <h4 className="mb-2 text-lg font-semibold">
+                      {blog.title}
+                    </h4>
+                    <p className="mb-4 text-sm text-body-color">
+                      {blog.description}
+                    </p>
+                    <Link
+                      href={`/blog/${blog.slug}`}
+                      className="text-sm font-semibold text-primary hover:underline"
+                    >
+                      Read more →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
