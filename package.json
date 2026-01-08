@@ -12,6 +12,7 @@
     "deploy": "npm run build:prod && touch dist/.nojekyll"
   },
   "dependencies": {
+    "@react-email/render": "^2.0.2",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "next": "^13.5.6",
