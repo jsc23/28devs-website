@@ -31,18 +31,18 @@ const Hero = () => {
 
               <div className="flex flex-wrap gap-4">
                 <Link
-                  href="/apps"
+                  href="/incognito-auditor"
                   className="rounded-sm bg-black px-8 py-4 text-base font-semibold text-white transition hover:bg-black/90 dark:bg-white dark:text-black"
                 >
                   View Zendesk Apps
                 </Link>
 
-                <Link
+                {/*<Link
                   href="/how-it-works"
                   className="rounded-sm border border-black/20 px-8 py-4 text-base font-semibold text-black transition hover:bg-black/5 dark:border-white/20 dark:text-white"
                 >
                   See how it works
-                </Link>
+                </Link>*/}
               </div>
 
               <div className="mt-8 flex flex-wrap gap-5 text-sm text-body-color dark:text-body-color-dark">
