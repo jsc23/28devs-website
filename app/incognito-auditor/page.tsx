@@ -50,7 +50,7 @@ const IncognitoAuditorPage = () => {
             {/* Image */}
             <div>
               <Image
-                src="/images/apps/incognito-auditor/hero.png"
+                src="/images/Webinar-rafiki.svg"
                 alt="Incognito Auditor Zendesk App"
                 width={600}
                 height={400}
@@ -68,9 +68,8 @@ const IncognitoAuditorPage = () => {
             Know what changes — and who made them
           </h2>
           <p className="text-lg text-body-color">
-            Zendesk doesn’t provide full visibility into configuration and data
-            changes. Incognito Auditor fills that gap by logging every critical
-            action, giving your team accountability and peace of mind.
+            Zendesk doesn’t provide the hablity to track changes made to tickets without the asignee seeing that sombody is watching. 
+            Incognito Auditor fills this gap. 
           </p>
         </div>
       </section>
