@@ -93,7 +93,7 @@ const NewsLatterBox = () => {
 
         {status === "success" && (
           <p className="text-center text-green-600">
-            Thanks! You’re on the list 🚀
+            Thanks! You’re on the list
           </p>
         )}
 
