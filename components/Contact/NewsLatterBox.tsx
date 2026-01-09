@@ -1,19 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useTheme } from "next-themes";
+
+type Status = "idle" | "loading" | "success" | "error";
 
 const NewsLatterBox = () => {
   const { theme } = useTheme();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<Status>("idle");
+
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  function resetWithDelay() {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
+      setStatus("idle");
+    }, 4000);
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
     if (!email) return;
+
+    // 🔥 limpiar timeout previo
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
 
     setStatus("loading");
 
@@ -29,8 +48,10 @@ const NewsLatterBox = () => {
       setStatus("success");
       setName("");
       setEmail("");
+      resetWithDelay();
     } catch {
       setStatus("error");
+      resetWithDelay();
     }
   }
 
