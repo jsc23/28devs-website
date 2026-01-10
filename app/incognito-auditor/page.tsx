@@ -21,7 +21,7 @@ const IncognitoAuditorPage = () => {
               </span>
 
               <h1 className="mb-6 text-4xl font-bold">
-                Full visibility into Zendesk changes
+                Incognito Auditor -Full visibility into Zendesk changes
               </h1>
 
               <p className="mb-8 text-lg text-body-color">

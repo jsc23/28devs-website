@@ -58,14 +58,14 @@ const Header = () => {
                 } `}
               >
                 <Image
-                  src={getImagePath("/images/logo/logo-2.svg")}
+                  src={getImagePath("/images/28devsblue.svg")}
                   alt="logo"
                   width={140}
                   height={30}
                   className="w-full dark:hidden"
                 />
                 <Image
-                  src={getImagePath("/images/logo/logo.svg")}
+                  src={getImagePath("/images/28devsblue.svg")}
                   alt="logo"
                   width={140}
                   height={30}
